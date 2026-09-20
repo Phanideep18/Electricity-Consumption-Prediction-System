@@ -1,0 +1,625 @@
+{
+  "timestamp": "2026-09-20T12:20:43.778040",
+  "include_lags": false,
+  "dataset_size": 12000,
+  "train_size": 8399,
+  "val_size": 1801,
+  "test_size": 1800,
+  "feature_count": 22,
+  "numeric_features": [
+    "hour",
+    "day_of_week",
+    "is_weekend",
+    "month",
+    "is_holiday",
+    "temperature_C",
+    "humidity_percent",
+    "wind_speed_kmph",
+    "precipitation_mm",
+    "square_footage",
+    "building_age_years",
+    "num_occupants",
+    "num_appliances",
+    "insulation_quality",
+    "energy_star_rating",
+    "solar_panel_installed",
+    "electricity_price_per_kWh",
+    "ac_usage_hours",
+    "heating_usage_hours",
+    "lighting_hours"
+  ],
+  "categorical_features": [
+    "building_type",
+    "season"
+  ],
+  "best_model_name": "Gradient Boosting",
+  "best_model_test_metrics": {
+    "mae": 3.3407018867485445,
+    "rmse": 4.295201114649093,
+    "mape": 4.641293264284943,
+    "r2": 0.998996814118118
+  },
+  "models": {
+    "Linear Regression": {
+      "train": {
+        "mae": 3.636716405885088,
+        "rmse": 4.831776777206428,
+        "mape": 5.090970205353227,
+        "r2": 0.9987600234995498
+      },
+      "val": {
+        "mae": 3.652666292901065,
+        "rmse": 4.865602099805161,
+        "mape": 4.976019290581142,
+        "r2": 0.9987722246523079
+      },
+      "test": {
+        "mae": 3.625324570426707,
+        "rmse": 4.838433802695951,
+        "mape": 4.9539867998892,
+        "r2": 0.9987270128742709
+      },
+      "meets_acceptance": true,
+      "feature_importances": [
+        {
+          "feature": "building_type_Industrial",
+          "importance": 91.81510900090804
+        },
+        {
+          "feature": "num_appliances",
+          "importance": 54.59478587924654
+        },
+        {
+          "feature": "building_type_Residential",
+          "importance": 35.773433138340714
+        },
+        {
+          "feature": "square_footage",
+          "importance": 34.79793904752554
+        },
+        {
+          "feature": "ac_usage_hours",
+          "importance": 9.325244595921149
+        },
+        {
+          "feature": "num_occupants",
+          "importance": 6.992142318990829
+        },
+        {
+          "feature": "heating_usage_hours",
+          "importance": 5.515589582808456
+        },
+        {
+          "feature": "solar_panel_installed",
+          "importance": 2.9200633959009212
+        },
+        {
+          "feature": "insulation_quality",
+          "importance": 2.6275597911816386
+        },
+        {
+          "feature": "lighting_hours",
+          "importance": 1.1762893299682065
+        },
+        {
+          "feature": "building_age_years",
+          "importance": 0.8741682337160286
+        },
+        {
+          "feature": "season_Winter",
+          "importance": 0.3855353261188467
+        },
+        {
+          "feature": "temperature_C",
+          "importance": 0.24190082249417716
+        },
+        {
+          "feature": "season_Summer",
+          "importance": 0.21030986386711334
+        },
+        {
+          "feature": "is_weekend",
+          "importance": 0.14347355666080977
+        }
+      ]
+    },
+    "Ridge Regression": {
+      "train": {
+        "mae": 3.6422014678800387,
+        "rmse": 4.833300971710258,
+        "mape": 5.094171894623501,
+        "r2": 0.9987592410695864
+      },
+      "val": {
+        "mae": 3.6578302464708035,
+        "rmse": 4.871290007363607,
+        "mape": 4.974693405276158,
+        "r2": 0.9987693524262646
+      },
+      "test": {
+        "mae": 3.6287901129252553,
+        "rmse": 4.8409997486302565,
+        "mape": 4.955362755042999,
+        "r2": 0.9987256623205979
+      },
+      "meets_acceptance": true,
+      "feature_importances": [
+        {
+          "feature": "building_type_Industrial",
+          "importance": 90.909808781203
+        },
+        {
+          "feature": "num_appliances",
+          "importance": 52.89326264435659
+        },
+        {
+          "feature": "square_footage",
+          "importance": 36.60345925820243
+        },
+        {
+          "feature": "building_type_Residential",
+          "importance": 35.18809846522823
+        },
+        {
+          "feature": "ac_usage_hours",
+          "importance": 9.326500010404219
+        },
+        {
+          "feature": "num_occupants",
+          "importance": 7.409991231337709
+        },
+        {
+          "feature": "heating_usage_hours",
+          "importance": 5.511795839119422
+        },
+        {
+          "feature": "solar_panel_installed",
+          "importance": 2.918942813989796
+        },
+        {
+          "feature": "insulation_quality",
+          "importance": 2.6260655211921913
+        },
+        {
+          "feature": "lighting_hours",
+          "importance": 1.1757798561085926
+        },
+        {
+          "feature": "building_age_years",
+          "importance": 0.8741897067830492
+        },
+        {
+          "feature": "season_Winter",
+          "importance": 0.3849297798767193
+        },
+        {
+          "feature": "temperature_C",
+          "importance": 0.2395346291756341
+        },
+        {
+          "feature": "season_Summer",
+          "importance": 0.2093690035943232
+        },
+        {
+          "feature": "is_weekend",
+          "importance": 0.14378248428235385
+        }
+      ]
+    },
+    "Lasso Regression": {
+      "train": {
+        "mae": 3.7714997133662203,
+        "rmse": 4.97477722362557,
+        "mape": 5.179010992963099,
+        "r2": 0.998685541119173
+      },
+      "val": {
+        "mae": 3.7795274502506047,
+        "rmse": 5.035229401420369,
+        "mape": 5.034064827477167,
+        "r2": 0.9986851256557767
+      },
+      "test": {
+        "mae": 3.7458714528777817,
+        "rmse": 4.965814406698168,
+        "mape": 5.035029693097077,
+        "r2": 0.9986591031439761
+      },
+      "meets_acceptance": true,
+      "feature_importances": [
+        {
+          "feature": "building_type_Industrial",
+          "importance": 83.61359147375367
+        },
+        {
+          "feature": "square_footage",
+          "importance": 52.27801148465995
+        },
+        {
+          "feature": "num_appliances",
+          "importance": 38.08127021407155
+        },
+        {
+          "feature": "building_type_Residential",
+          "importance": 30.01531280442052
+        },
+        {
+          "feature": "num_occupants",
+          "importance": 10.876394268768708
+        },
+        {
+          "feature": "ac_usage_hours",
+          "importance": 9.26032211250816
+        },
+        {
+          "feature": "heating_usage_hours",
+          "importance": 5.360623686302309
+        },
+        {
+          "feature": "solar_panel_installed",
+          "importance": 2.8126620485099387
+        },
+        {
+          "feature": "insulation_quality",
+          "importance": 2.522289085937794
+        },
+        {
+          "feature": "lighting_hours",
+          "importance": 1.0732467022073342
+        },
+        {
+          "feature": "building_age_years",
+          "importance": 0.7706148711841131
+        },
+        {
+          "feature": "hour",
+          "importance": 0.0
+        },
+        {
+          "feature": "day_of_week",
+          "importance": 0.0
+        },
+        {
+          "feature": "is_weekend",
+          "importance": 0.0
+        },
+        {
+          "feature": "month",
+          "importance": 0.0
+        }
+      ]
+    },
+    "Random Forest": {
+      "train": {
+        "mae": 1.7472116035408833,
+        "rmse": 2.2613946957636992,
+        "mape": 2.568584035778448,
+        "r2": 0.9997283858015166
+      },
+      "val": {
+        "mae": 4.073325459558311,
+        "rmse": 5.3731721060241755,
+        "mape": 5.223631673798272,
+        "r2": 0.9985027054921463
+      },
+      "test": {
+        "mae": 4.006635260982944,
+        "rmse": 5.278270602521291,
+        "mape": 5.1783738857691715,
+        "r2": 0.9984850520654005
+      },
+      "meets_acceptance": true,
+      "feature_importances": [
+        {
+          "feature": "building_type_Industrial",
+          "importance": 0.796537058147038
+        },
+        {
+          "feature": "square_footage",
+          "importance": 0.16175527679977347
+        },
+        {
+          "feature": "num_appliances",
+          "importance": 0.03164975799370009
+        },
+        {
+          "feature": "num_occupants",
+          "importance": 0.003130118041651064
+        },
+        {
+          "feature": "ac_usage_hours",
+          "importance": 0.002821317915526865
+        },
+        {
+          "feature": "building_type_Residential",
+          "importance": 0.0011432189171175294
+        },
+        {
+          "feature": "heating_usage_hours",
+          "importance": 0.0008109229922239337
+        },
+        {
+          "feature": "solar_panel_installed",
+          "importance": 0.0007338401666015408
+        },
+        {
+          "feature": "temperature_C",
+          "importance": 0.0004210706481686922
+        },
+        {
+          "feature": "insulation_quality",
+          "importance": 0.00018313864608970128
+        },
+        {
+          "feature": "lighting_hours",
+          "importance": 0.00012513721304757266
+        },
+        {
+          "feature": "building_age_years",
+          "importance": 0.00012052181862051459
+        },
+        {
+          "feature": "humidity_percent",
+          "importance": 9.138558118548715e-05
+        },
+        {
+          "feature": "energy_star_rating",
+          "importance": 9.025195982423797e-05
+        },
+        {
+          "feature": "wind_speed_kmph",
+          "importance": 8.87724409710673e-05
+        }
+      ]
+    },
+    "Gradient Boosting": {
+      "train": {
+        "mae": 2.516913138252843,
+        "rmse": 3.169076509117479,
+        "mape": 3.832268406302576,
+        "r2": 0.9994665850557177
+      },
+      "val": {
+        "mae": 3.3619869252937096,
+        "rmse": 4.323813078850969,
+        "mape": 4.531854135392872,
+        "r2": 0.9990304291494201
+      },
+      "test": {
+        "mae": 3.3407018867485445,
+        "rmse": 4.295201114649093,
+        "mape": 4.641293264284943,
+        "r2": 0.998996814118118
+      },
+      "meets_acceptance": true,
+      "feature_importances": [
+        {
+          "feature": "building_type_Industrial",
+          "importance": 0.7904892958080046
+        },
+        {
+          "feature": "square_footage",
+          "importance": 0.13675399935954632
+        },
+        {
+          "feature": "num_appliances",
+          "importance": 0.06148186174085789
+        },
+        {
+          "feature": "num_occupants",
+          "importance": 0.0043257752034043155
+        },
+        {
+          "feature": "ac_usage_hours",
+          "importance": 0.002975964435356064
+        },
+        {
+          "feature": "building_type_Residential",
+          "importance": 0.0013886217978481723
+        },
+        {
+          "feature": "heating_usage_hours",
+          "importance": 0.0009880829791354198
+        },
+        {
+          "feature": "solar_panel_installed",
+          "importance": 0.0009069772516692463
+        },
+        {
+          "feature": "insulation_quality",
+          "importance": 0.000295950472405932
+        },
+        {
+          "feature": "temperature_C",
+          "importance": 0.00022244686763225552
+        },
+        {
+          "feature": "lighting_hours",
+          "importance": 7.843357865069318e-05
+        },
+        {
+          "feature": "building_age_years",
+          "importance": 4.174289847600104e-05
+        },
+        {
+          "feature": "energy_star_rating",
+          "importance": 1.908402780773015e-05
+        },
+        {
+          "feature": "wind_speed_kmph",
+          "importance": 7.824780019638322e-06
+        },
+        {
+          "feature": "electricity_price_per_kWh",
+          "importance": 7.2035537835389e-06
+        }
+      ]
+    },
+    "XGBoost": {
+      "train": {
+        "mae": 2.622134528520604,
+        "rmse": 3.3366428756253885,
+        "mape": 3.9263909684876905,
+        "r2": 0.9994086846096472
+      },
+      "val": {
+        "mae": 3.544324816037124,
+        "rmse": 5.27120278730646,
+        "mape": 4.589584906872353,
+        "r2": 0.9985589960312736
+      },
+      "test": {
+        "mae": 3.375723548677233,
+        "rmse": 4.382597212944522,
+        "mape": 4.623826081679465,
+        "r2": 0.9989555743702325
+      },
+      "meets_acceptance": true,
+      "feature_importances": [
+        {
+          "feature": "building_type_Industrial",
+          "importance": 0.9808680415153503
+        },
+        {
+          "feature": "square_footage",
+          "importance": 0.009474685415625572
+        },
+        {
+          "feature": "num_appliances",
+          "importance": 0.008288654498755932
+        },
+        {
+          "feature": "num_occupants",
+          "importance": 0.0008103899890556931
+        },
+        {
+          "feature": "ac_usage_hours",
+          "importance": 0.00019110433640889823
+        },
+        {
+          "feature": "solar_panel_installed",
+          "importance": 9.324283746536821e-05
+        },
+        {
+          "feature": "heating_usage_hours",
+          "importance": 8.839837391860783e-05
+        },
+        {
+          "feature": "insulation_quality",
+          "importance": 5.82337670493871e-05
+        },
+        {
+          "feature": "temperature_C",
+          "importance": 4.368962981970981e-05
+        },
+        {
+          "feature": "energy_star_rating",
+          "importance": 1.8152641132473946e-05
+        },
+        {
+          "feature": "lighting_hours",
+          "importance": 1.3319003301148769e-05
+        },
+        {
+          "feature": "building_age_years",
+          "importance": 9.836794561124407e-06
+        },
+        {
+          "feature": "electricity_price_per_kWh",
+          "importance": 9.13608801056398e-06
+        },
+        {
+          "feature": "season_Spring",
+          "importance": 6.988684162934078e-06
+        },
+        {
+          "feature": "humidity_percent",
+          "importance": 4.76015338790603e-06
+        }
+      ]
+    },
+    "LightGBM": {
+      "train": {
+        "mae": 2.7103792523995804,
+        "rmse": 3.5754906984596504,
+        "mape": 3.987690128789105,
+        "r2": 0.9993209980281166
+      },
+      "val": {
+        "mae": 3.4865419767138843,
+        "rmse": 4.747357025576158,
+        "mape": 4.580685107707836,
+        "r2": 0.9988311749336991
+      },
+      "test": {
+        "mae": 3.3284343577810866,
+        "rmse": 4.272049034614108,
+        "mape": 4.636906148959256,
+        "r2": 0.9990075997567938
+      },
+      "meets_acceptance": true,
+      "feature_importances": [
+        {
+          "feature": "ac_usage_hours",
+          "importance": 448.0
+        },
+        {
+          "feature": "num_appliances",
+          "importance": 416.0
+        },
+        {
+          "feature": "heating_usage_hours",
+          "importance": 315.0
+        },
+        {
+          "feature": "square_footage",
+          "importance": 264.0
+        },
+        {
+          "feature": "lighting_hours",
+          "importance": 161.0
+        },
+        {
+          "feature": "solar_panel_installed",
+          "importance": 157.0
+        },
+        {
+          "feature": "num_occupants",
+          "importance": 150.0
+        },
+        {
+          "feature": "temperature_C",
+          "importance": 127.0
+        },
+        {
+          "feature": "insulation_quality",
+          "importance": 127.0
+        },
+        {
+          "feature": "building_age_years",
+          "importance": 106.0
+        },
+        {
+          "feature": "humidity_percent",
+          "importance": 49.0
+        },
+        {
+          "feature": "electricity_price_per_kWh",
+          "importance": 41.0
+        },
+        {
+          "feature": "wind_speed_kmph",
+          "importance": 35.0
+        },
+        {
+          "feature": "energy_star_rating",
+          "importance": 26.0
+        },
+        {
+          "feature": "building_type_Industrial",
+          "importance": 25.0
+        }
+      ]
+    }
+  }
+}

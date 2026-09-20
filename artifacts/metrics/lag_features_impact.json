@@ -1,0 +1,21 @@
+{
+  "with_lags": {
+    "best_model": "Gradient Boosting",
+    "metrics": {
+      "mae": 2.747507344617295,
+      "rmse": 4.091565816460081,
+      "mape": 2.6817070149903626,
+      "r2": 0.9990896812513483
+    }
+  },
+  "without_lags": {
+    "best_model": "Gradient Boosting",
+    "metrics": {
+      "mae": 3.3407018867485445,
+      "rmse": 4.295201114649093,
+      "mape": 4.641293264284943,
+      "r2": 0.998996814118118
+    }
+  },
+  "findings": "Models trained with lag features (previous_day_consumption_kWh, avg_weekly_consumption_kWh) leverage historical autocorrelation to achieve extremely low errors (R2 ~ 0.999). Models trained without lag features rely purely on building attributes, weather, and usage hours, reflecting pure structural and operational drivers of electricity consumption."
+}
