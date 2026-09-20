@@ -133,6 +133,130 @@ st.markdown("""
         color: #38BDF8 !important;
         border: 1px solid rgba(59, 130, 246, 0.4) !important;
     }
+    
+    .arch-container {
+        background: linear-gradient(145deg, #1E293B 0%, #0F172A 100%);
+        border: 1px solid rgba(59, 130, 246, 0.25);
+        border-radius: 16px;
+        padding: 24px 28px;
+        margin: 20px 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+    
+    .stage-tag {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+    
+    .tag-offline {
+        background: rgba(59, 130, 246, 0.15);
+        color: #60A5FA;
+        border: 1px solid rgba(59, 130, 246, 0.35);
+    }
+    
+    .tag-online {
+        background: rgba(16, 185, 129, 0.15);
+        color: #34D399;
+        border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+    
+    .arch-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 12px;
+        align-items: stretch;
+    }
+    
+    .arch-grid-serving {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        align-items: stretch;
+    }
+    
+    .arch-card {
+        background: rgba(15, 23, 42, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 16px 14px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+        position: relative;
+    }
+    
+    .arch-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(56, 189, 248, 0.6);
+        box-shadow: 0 6px 20px rgba(56, 189, 248, 0.15);
+    }
+    
+    .step-pill {
+        background: linear-gradient(135deg, #2563EB, #1D4ED8);
+        color: #FFFFFF;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 800;
+        margin-bottom: 8px;
+    }
+    
+    .step-icon {
+        font-size: 1.8rem;
+        margin-bottom: 6px;
+    }
+    
+    .step-title {
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: #F8FAFC;
+        margin-bottom: 6px;
+        line-height: 1.25;
+    }
+    
+    .step-desc {
+        font-size: 0.75rem;
+        color: #94A3B8;
+        line-height: 1.35;
+    }
+    
+    .capabilities-box {
+        background: linear-gradient(145deg, #1E293B 0%, #0F172A 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 24px;
+        height: 100%;
+    }
+    
+    .cap-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 14px;
+        gap: 12px;
+    }
+    
+    .cap-icon {
+        background: rgba(59, 130, 246, 0.15);
+        color: #38BDF8;
+        padding: 8px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        line-height: 1;
+        flex-shrink: 0;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -270,30 +394,110 @@ with tab_home:
         
     st.markdown("<br>", unsafe_allow_html=True)
     
-    col_left, col_right = st.columns([3, 2])
+    # Full-Width System Architecture & Data Flow
+    st.markdown("#### 🔄 **System Architecture & End-to-End Data Flow**")
+    st.markdown("""<div class="arch-container">
+<div><span class="stage-tag tag-offline">Stage 1: Offline Training & Validation Pipeline (SRS Section 7.1)</span></div>
+<div class="arch-grid">
+<div class="arch-card">
+<div class="step-pill">1</div>
+<div class="step-icon">📁</div>
+<div class="step-title">Dataset Ingestion</div>
+<div class="step-desc">12,000 records across 27 weather, structural & lag features</div>
+</div>
+<div class="arch-card">
+<div class="step-pill">2</div>
+<div class="step-icon">⚙️</div>
+<div class="step-title">Preprocessing</div>
+<div class="step-desc">Median imputation, One-Hot Encoding & Standard Scaling</div>
+</div>
+<div class="arch-card">
+<div class="step-pill">3</div>
+<div class="step-icon">🔀</div>
+<div class="step-title">Stratified Splitting</div>
+<div class="step-desc">70% Train, 15% Validation, 15% Test split by Building Type</div>
+</div>
+<div class="arch-card">
+<div class="step-pill">4</div>
+<div class="step-icon">🧠</div>
+<div class="step-title">Model Benchmarking</div>
+<div class="step-desc">Linear, Ridge, Lasso, RF, Gradient Boosting, XGBoost, LightGBM</div>
+</div>
+<div class="arch-card">
+<div class="step-pill">5</div>
+<div class="step-icon">📊</div>
+<div class="step-title">Evaluation & Audit</div>
+<div class="step-desc">Scoring MAE, RMSE, MAPE, R² with IEEE 830 gating</div>
+</div>
+<div class="arch-card">
+<div class="step-pill">6</div>
+<div class="step-icon">💾</div>
+<div class="step-title">Artifact Persistence</div>
+<div class="step-desc">Serialized best pipeline (.joblib) & metrics JSON/CSV</div>
+</div>
+</div>
+<div style="margin-top: 24px;"><span class="stage-tag tag-online">Stage 2: Online Serving & Real-Time Inference (SRS Section 7.2)</span></div>
+<div class="arch-grid-serving">
+<div class="arch-card">
+<div class="step-icon">🌐</div>
+<div class="step-title">Streamlit UI & User Inputs</div>
+<div class="step-desc">Interactive tabs for single-record forms, batch CSV upload, and EDA</div>
+</div>
+<div class="arch-card">
+<div class="step-icon">⚡</div>
+<div class="step-title">Inference Engine (Predictor)</div>
+<div class="step-desc">Applies saved preprocessing pipeline on inputs guaranteeing train/serve parity</div>
+</div>
+<div class="arch-card">
+<div class="step-icon">📈</div>
+<div class="step-title">Actionable Outputs</div>
+<div class="step-desc">Predicted kWh, 95% Confidence Bounds, Tariff Cost ($), Benchmark Delta & CSV Reports</div>
+</div>
+</div>
+</div>""", unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    col_left, col_right = st.columns([1.1, 0.9])
     with col_left:
-        st.markdown("#### 🔄 **System Architecture & Data Flow**")
-        st.markdown("""
-        ```mermaid
-        graph LR
-            A[Historical CSV Dataset] --> B[Data Validation & Preprocessing]
-            B --> C[70/15/15 Stratified Split]
-            C --> D[Candidate Regression Models]
-            D --> E[Evaluation: MAE, RMSE, MAPE, R²]
-            E --> F[Serialized Artifact: best_model.joblib]
-            F --> G[Interactive Streamlit Serving UI]
-            G --> H[Single & Batch Inferences]
-        ```
-        """)
-        
-        st.markdown("#### 💡 **Core Capabilities**")
-        st.markdown("""
-        - **Comprehensive EDA**: Multivariate correlation heatmaps, weather vs load regressions, and peak-hour profiles.
-        - **Algorithmic Benchmarking**: Comparison across Linear Regression, Ridge, Lasso, Random Forest, Gradient Boosting, XGBoost, and LightGBM.
-        - **Lag Feature Transparency**: Distinct evaluations with and without near-leakage lag variables.
-        - **Real-Time Predictions**: Instant single-record predictions with tariff cost calculations and building-type benchmark comparisons.
-        - **Batch Processing**: Scalable CSV upload with instant validation, bulk inference, and exportable reports.
-        """)
+        st.markdown("#### 💡 **Core System Capabilities**")
+        st.markdown("""<div class="capabilities-box">
+<div class="cap-item">
+<div class="cap-icon">📊</div>
+<div>
+<b style="color: #F8FAFC;">Comprehensive EDA Dashboard</b><br>
+<span style="color: #94A3B8; font-size: 0.88rem;">Multivariate correlation heatmaps, temperature vs consumption regressions, and peak-hour load curves.</span>
+</div>
+</div>
+<div class="cap-item">
+<div class="cap-icon">⚙️</div>
+<div>
+<b style="color: #F8FAFC;">Algorithmic Benchmarking Suite</b><br>
+<span style="color: #94A3B8; font-size: 0.88rem;">Multi-model comparison across Linear Regression, Ridge, Lasso, Random Forest, Gradient Boosting, XGBoost, and LightGBM.</span>
+</div>
+</div>
+<div class="cap-item">
+<div class="cap-icon">🔍</div>
+<div>
+<b style="color: #F8FAFC;">Lag Feature Impact Transparency</b><br>
+<span style="color: #94A3B8; font-size: 0.88rem;">Evaluates models both with and without near-leakage lag variables (SRS Section 9.3).</span>
+</div>
+</div>
+<div class="cap-item">
+<div class="cap-icon">⚡</div>
+<div>
+<b style="color: #F8FAFC;">Instant Single Record Forecasting</b><br>
+<span style="color: #94A3B8; font-size: 0.88rem;">Real-time inference with 95% confidence intervals, utility tariff costs, and building benchmark deltas.</span>
+</div>
+</div>
+<div class="cap-item" style="margin-bottom: 0;">
+<div class="cap-icon">📁</div>
+<div>
+<b style="color: #F8FAFC;">Scalable Batch CSV Processing</b><br>
+<span style="color: #94A3B8; font-size: 0.88rem;">Bulk dataset upload with inline validation, distribution charts, and exportable predictions CSV.</span>
+</div>
+</div>
+</div>""", unsafe_allow_html=True)
         
     with col_right:
         st.markdown("#### 🏢 **Dataset Building Distribution**")
@@ -308,12 +512,38 @@ with tab_home:
             hole=0.45
         )
         fig_pie.update_layout(
-            margin=dict(l=20, r=20, t=20, b=20),
+            margin=dict(l=10, r=10, t=10, b=10),
             paper_bgcolor="rgba(0,0,0,0)",
             plot_bgcolor="rgba(0,0,0,0)",
-            font=dict(color="#F8FAFC")
+            font=dict(color="#F8FAFC"),
+            height=320,
+            legend=dict(orientation="h", yanchor="bottom", y=-0.2, xanchor="center", x=0.5)
         )
         st.plotly_chart(fig_pie, use_container_width=True)
+        
+        # Summary row of building distribution counts
+        c_res, c_com, c_ind = st.columns(3)
+        with c_res:
+            st.markdown("""
+            <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 8px; padding: 10px; text-align: center;">
+                <div style="color: #60A5FA; font-weight: 700; font-size: 1.1rem;">6,652</div>
+                <div style="color: #94A3B8; font-size: 0.75rem;">Residential (55.4%)</div>
+            </div>
+            """, unsafe_allow_html=True)
+        with c_com:
+            st.markdown("""
+            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 10px; text-align: center;">
+                <div style="color: #34D399; font-weight: 700; font-size: 1.1rem;">3,582</div>
+                <div style="color: #94A3B8; font-size: 0.75rem;">Commercial (29.8%)</div>
+            </div>
+            """, unsafe_allow_html=True)
+        with c_ind:
+            st.markdown("""
+            <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; padding: 10px; text-align: center;">
+                <div style="color: #FBBF24; font-weight: 700; font-size: 1.1rem;">1,766</div>
+                <div style="color: #94A3B8; font-size: 0.75rem;">Industrial (14.7%)</div>
+            </div>
+            """, unsafe_allow_html=True)
 
 # ==============================================================================
 # TAB 2: DATA EXPLORER (EDA)
